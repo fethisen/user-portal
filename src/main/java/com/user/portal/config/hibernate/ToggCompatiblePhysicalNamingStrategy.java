@@ -6,7 +6,7 @@ import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
 
 import java.util.Locale;
 
-public class JHipsterCompatiblePhysicalNamingStrategy implements PhysicalNamingStrategy {
+public class ToggCompatiblePhysicalNamingStrategy implements PhysicalNamingStrategy {
 
     @Override
     public Identifier toPhysicalCatalogName(Identifier name, JdbcEnvironment jdbcEnvironment) {

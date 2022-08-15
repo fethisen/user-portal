@@ -23,12 +23,6 @@ public class MailServiceIT {
     @Inject
     MailService mailService;
 
-    private static final String[] languages = {
-        // jhipster-needle-i18n-language-constant - JHipster will add/remove languages in this array
-        //  TODO this array should be used along side Localized templates to ensure languages are correctly handle
-        // see https://github.com/quarkusio/quarkus/issues/7665
-        // https://quarkus.io/guides/qute-reference#localization
-    };
 
     @BeforeEach
     void init() {
@@ -53,8 +47,8 @@ public class MailServiceIT {
         List<Mail> sent = mailbox.getMessagesSentTo(user.email);
         assertThat(sent).hasSize(1);
         Mail actual = sent.get(0);
-        assertThat(actual.getHtml()).contains("Your JHipster account has been created, please click on the URL below to activate it:");
-        assertThat(actual.getSubject()).isEqualTo("jhipsterSampleApplication account activation is required");
+        assertThat(actual.getHtml()).contains("Your Togg account has been created, please click on the URL below to activate it:");
+        assertThat(actual.getSubject()).isEqualTo("toggSampleApplication account activation is required");
     }
 
     @Test
@@ -66,8 +60,8 @@ public class MailServiceIT {
         List<Mail> sent = mailbox.getMessagesSentTo(user.email);
         assertThat(sent).hasSize(1);
         Mail actual = sent.get(0);
-        assertThat(actual.getHtml()).contains("Your JHipster account has been created, please click on the URL below to access it:");
-        assertThat(actual.getSubject()).isEqualTo("jhipsterSampleApplication account activation is required");
+        assertThat(actual.getHtml()).contains("Your Togg account has been created, please click on the URL below to access it:");
+        assertThat(actual.getSubject()).isEqualTo("toggSampleApplication account activation is required");
     }
 
     @Test
@@ -79,7 +73,7 @@ public class MailServiceIT {
         List<Mail> sent = mailbox.getMessagesSentTo(user.email);
         assertThat(sent).hasSize(1);
         Mail actual = sent.get(0);
-        assertThat(actual.getHtml()).contains("For your JHipster account a password reset was requested, please click on the URL below to reset it:");
-        assertThat(actual.getSubject()).isEqualTo("jhipsterSampleApplication password reset");
+        assertThat(actual.getHtml()).contains("For your Togg account a password reset was requested, please click on the URL below to reset it:");
+        assertThat(actual.getSubject()).isEqualTo("toggSampleApplication password reset");
     }
 }

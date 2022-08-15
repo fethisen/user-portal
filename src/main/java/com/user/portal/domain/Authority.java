@@ -16,7 +16,7 @@ import javax.persistence.*;
  * An authority (a security role).
  */
 @Entity
-@Table(name = "jhi_authority")
+@Table(name = "togg_authority")
 @Cacheable
 @RegisterForReflection
 public class Authority extends PanacheEntityBase implements Serializable {

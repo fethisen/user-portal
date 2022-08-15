@@ -54,7 +54,7 @@
         <junit.utReportFolder>${project.testresult.directory}/test</junit.utReportFolder>
         <junit.itReportFolder>${project.testresult.directory}/integrationTest</junit.itReportFolder>
         <quarkus.logManager>org.jboss.logmanager.LogManager</quarkus.logManager>
-        <!-- jhipster-needle-maven-property -->
+
     </properties>
 
     <dependencyManagement>
@@ -187,7 +187,7 @@
             <classifier>runtime</classifier>
             <scope>test</scope>
         </dependency>
-        <!-- jhipster-needle-maven-add-dependency -->
+
     </dependencies>
     <build>
         <defaultGoal>compile quarkus:dev</defaultGoal>
@@ -318,24 +318,6 @@
                             </configuration>
                         </execution>
                     </executions>
-                    <configuration>
-                        <rules>
-                            <requireMavenVersion>
-                                <message>You are running an older version of Maven. JHipster Quarkus requires at least
-                                    Maven
-                                    ${maven.version}
-                                </message>
-                                <version>[${maven.version},)</version>
-                            </requireMavenVersion>
-                            <requireJavaVersion>
-                                <message>You are running an incompatible version of Java. JHipster Quarkus supports JDK
-                                    8 to
-                                    13.
-                                </message>
-                                <version>[1.8,14)</version>
-                            </requireJavaVersion>
-                        </rules>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -411,7 +393,6 @@
                     </executions>
                 </plugin>
             </plugins>
-            <!-- jhipster-needle-maven-add-plugin-management -->
         </pluginManagement>
         <plugins>
             <plugin>
@@ -467,7 +448,6 @@
                 <artifactId>quarkus-maven-plugin</artifactId>
                 <version>${quarkus-plugin.version}</version>
             </plugin>
-            <!-- jhipster-needle-maven-add-plugin -->
         </plugins>
     </build>
     <profiles>
@@ -488,69 +468,7 @@
                 </dependency>
             </dependencies>
         </profile>
-        <profile>
-            <id>prod</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-clean-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>JHipster Quarkus remove static</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>clean</goal>
-                                </goals>
-                                <configuration>
-                                    <excludeDefaultDirectories>true</excludeDefaultDirectories>
-                                    <filesets>
-                                        <fileset>
-                                            <directory>${basedir}/target/classes/static</directory>
-                                        </fileset>
-                                    </filesets>
-                                </configuration>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <filesets>
-                                <fileset>
-                                    <directory>target/classes/META-INF/resources/</directory>
-                                </fileset>
-                            </filesets>
-                        </configuration>
-                    </plugin>
-                    <!-- JHipster Quarkus hack to move from target/classes/static to /target/classes/META-INF/resources -->
-                    <plugin>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>JHipster Quarkus copy static to META-INF/resources</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${basedir}/target/classes/META-INF/resources/</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>${basedir}/target/classes/static/</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>pl.project13.maven</groupId>
-                        <artifactId>git-commit-id-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-            <properties>
-                <!-- default Quarkus profiles -->
-                <quarkus.profile>prod</quarkus.profile>
-            </properties>
-        </profile>
+
         <profile>
             <id>native</id>
             <activation>
@@ -585,7 +503,6 @@
                 <quarkus.package.type>native</quarkus.package.type>
             </properties>
         </profile>
-        <!-- jhipster-needle-maven-add-profile -->
     </profiles>
 </project>
 

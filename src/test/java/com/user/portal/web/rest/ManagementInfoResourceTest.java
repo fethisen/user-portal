@@ -1,7 +1,7 @@
 package com.user.portal.web.rest;
 
 import com.user.portal.TestUtil;
-import com.user.portal.config.mock.JHipsterInfoMock;
+import com.user.portal.config.mock.ToggInfoMock;
 import com.user.portal.service.dto.ManagementInfoDTO;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
@@ -29,7 +29,7 @@ public class ManagementInfoResourceTest {
     @Test
     public void swaggerEnabled() {
         // Prepare test data
-        JHipsterInfoMock.enable=true;
+        ToggInfoMock.enable=true;
 
         // Get Management info
         final ManagementInfoDTO info = given()
@@ -46,7 +46,7 @@ public class ManagementInfoResourceTest {
     @Test
     public void swaggerDisabled() {
         // Prepare test data
-        JHipsterInfoMock.enable = false;
+        ToggInfoMock.enable = false;
 
         // Get Management info
         final ManagementInfoDTO info = given()

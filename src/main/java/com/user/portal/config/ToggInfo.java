@@ -4,8 +4,8 @@ import io.quarkus.arc.config.ConfigProperties;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 
-@ConfigProperties(prefix = "jhipster.info")
-public interface JHipsterInfo {
+@ConfigProperties(prefix = "togg.info")
+public interface ToggInfo {
 
     @ConfigProperty(name = "swagger.enable", defaultValue = "true")
     Boolean isEnable();

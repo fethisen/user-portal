@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Path("/management/loggers")
 @Produces(MediaType.APPLICATION_JSON)
 @RequestScoped
-public class JHipsterLoggersEndpoint {
+public class ToggLoggersEndpoint {
 
   @GET
   @RolesAllowed(AuthoritiesConstants.ADMIN)

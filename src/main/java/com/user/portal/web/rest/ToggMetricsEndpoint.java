@@ -17,14 +17,12 @@ import java.lang.management.ThreadInfo;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-/**
- * <p>JHipsterMetricsEndpoint class.</p>
- */
+
 @Path("/management")
 @Produces(MediaType.APPLICATION_JSON)
-public class JHipsterMetricsEndpoint {
+public class ToggMetricsEndpoint {
 
-    private final Logger logger = LoggerFactory.getLogger(JHipsterMetricsEndpoint.class);
+    private final Logger logger = LoggerFactory.getLogger(ToggMetricsEndpoint.class);
 
     /** Constant <code>MISSING_NAME_TAG_MESSAGE="Missing name tag for metric {}"</code> */
     public static final String MISSING_NAME_TAG_MESSAGE = "Missing name tag for metric {}";
@@ -32,12 +30,11 @@ public class JHipsterMetricsEndpoint {
     final MeterRegistry meterRegistry;
 
     /**
-     * <p>Constructor for JHipsterMetricsEndpoint.</p>
      *
      * @param meterRegistry a {@link io.micrometer.core.instrument.MeterRegistry} object.
      */
     @Inject
-    public JHipsterMetricsEndpoint(MeterRegistry meterRegistry) {
+    public ToggMetricsEndpoint(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
     }
 

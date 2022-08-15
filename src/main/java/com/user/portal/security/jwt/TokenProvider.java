@@ -1,6 +1,6 @@
 package com.user.portal.security.jwt;
 
-import com.user.portal.config.JHipsterProperties;
+import com.user.portal.config.ToggProperties;
 import io.quarkus.security.runtime.QuarkusSecurityIdentity;
 import java.io.InputStream;
 import java.security.Key;
@@ -25,8 +25,8 @@ import org.slf4j.LoggerFactory;
 public class TokenProvider {
     private final Logger log = LoggerFactory.getLogger(TokenProvider.class);
 
-    private static final String AUTHORITIES_KEY = "auth"; // Claim JHiptser front-end uses
-    public static final String GROUPS_KEY = "groups"; // Default claim for MP-JWT
+    private static final String AUTHORITIES_KEY = "auth";
+    public static final String GROUPS_KEY = "groups";
 
     private final Key key;
 
@@ -37,13 +37,13 @@ public class TokenProvider {
     private final long tokenValidityInMillisecondsForRememberMe;
 
     @Inject
-    public TokenProvider(JHipsterProperties jHipsterProperties)
+    public TokenProvider(ToggProperties toggProperties)
         throws Exception {
-        this.key = readPrivateKey(jHipsterProperties.security.authentication.jwt.privateKey.location);
-        this.issuer = jHipsterProperties.security.authentication.jwt.issuer;
-        this.tokenValidityInMilliseconds = jHipsterProperties.security.authentication.jwt.tokenValidityInSeconds * 1000;
+        this.key = readPrivateKey(toggProperties.security.authentication.jwt.privateKey.location);
+        this.issuer = toggProperties.security.authentication.jwt.issuer;
+        this.tokenValidityInMilliseconds = toggProperties.security.authentication.jwt.tokenValidityInSeconds * 1000;
         this.tokenValidityInMillisecondsForRememberMe =
-            jHipsterProperties.security.authentication.jwt.tokenValidityInSecondsForRememberMe * 1000;
+            toggProperties.security.authentication.jwt.tokenValidityInSecondsForRememberMe * 1000;
     }
 
     @PostConstruct

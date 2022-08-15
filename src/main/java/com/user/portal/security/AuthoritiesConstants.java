@@ -1,8 +1,6 @@
 package com.user.portal.security;
 
-/**
- * Constants JHipster authorities.
- */
+
 public final class AuthoritiesConstants {
     public static final String ADMIN = "ROLE_ADMIN";
 

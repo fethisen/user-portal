@@ -1,7 +1,7 @@
 package com.user.portal.service;
 
 import io.quarkus.runtime.configuration.ProfileManager;
-import com.user.portal.config.JHipsterInfo;
+import com.user.portal.config.ToggInfo;
 import com.user.portal.service.dto.ManagementInfoDTO;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -13,16 +13,16 @@ import javax.inject.Inject;
 @ApplicationScoped
 public class ManagementInfoService {
 
-    private final JHipsterInfo JHipsterInfo;
+    private final ToggInfo ToggInfo;
 
     @Inject
-    public ManagementInfoService(JHipsterInfo JHipsterInfo) {
-        this.JHipsterInfo = JHipsterInfo;
+    public ManagementInfoService(ToggInfo ToggInfo) {
+        this.ToggInfo = ToggInfo;
     }
 
     public ManagementInfoDTO getManagementInfo(){
         var info = new ManagementInfoDTO();
-        if(JHipsterInfo.isEnable()){
+        if(ToggInfo.isEnable()){
             info.activeProfiles.add("swagger");
         }
         info.activeProfiles.add(ProfileManager.getActiveProfile());

@@ -9,7 +9,7 @@ public class ConfigPropsVM {
   public final Map<String, Context> contexts = new HashMap<>();
 
   public ConfigPropsVM() {
-    this.contexts.put("JHipster", new Context());
+    this.contexts.put("Togg", new Context());
   }
 
   @RegisterForReflection

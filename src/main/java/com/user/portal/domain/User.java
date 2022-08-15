@@ -24,7 +24,7 @@ import org.hibernate.annotations.Cache;
  * A user.
  */
 @Entity
-@Table(name = "jhi_user")
+@Table(name = "togg_user")
 @Cacheable
 public class User extends PanacheEntityBase implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -86,7 +86,7 @@ public class User extends PanacheEntityBase implements Serializable {
 
     @ManyToMany
     @JoinTable(
-        name = "jhi_user_authority",
+        name = "togg_user_authority",
         joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") },
         inverseJoinColumns = { @JoinColumn(name = "authority_name", referencedColumnName = "name") }
     )

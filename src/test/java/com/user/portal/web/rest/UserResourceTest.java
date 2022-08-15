@@ -32,19 +32,19 @@ import org.junit.jupiter.api.*;
 @QuarkusTest
 public class UserResourceTest {
     private static final String DEFAULT_LOGIN = "johndoe";
-    private static final String UPDATED_LOGIN = "jhipster";
+    private static final String UPDATED_LOGIN = "togg";
 
     private static final String DEFAULT_PASSWORD = "passjohndoe";
-    private static final String UPDATED_PASSWORD = "passjhipster";
+    private static final String UPDATED_PASSWORD = "passtogg";
 
     private static final String DEFAULT_EMAIL = "johndoe@localhost";
-    private static final String UPDATED_EMAIL = "jhipster@localhost";
+    private static final String UPDATED_EMAIL = "togg@localhost";
 
     private static final String DEFAULT_FIRSTNAME = "john";
-    private static final String UPDATED_FIRSTNAME = "jhipsterFirstName";
+    private static final String UPDATED_FIRSTNAME = "toggFirstName";
 
     private static final String DEFAULT_LASTNAME = "doe";
-    private static final String UPDATED_LASTNAME = "jhipsterLastName";
+    private static final String UPDATED_LASTNAME = "toggLastName";
 
     private static final String DEFAULT_IMAGEURL = "http://placehold.it/50x50";
     private static final String UPDATED_IMAGEURL = "http://placehold.it/40x40";
@@ -411,10 +411,10 @@ public class UserResourceTest {
             .statusCode(CREATED.getStatusCode());
 
         var otherManagedUserVM = new ManagedUserVM();
-        otherManagedUserVM.login = "jhipster";
+        otherManagedUserVM.login = "togg";
         otherManagedUserVM.password = RandomStringUtils.random(60);
         otherManagedUserVM.activated = true;
-        otherManagedUserVM.email = "jhipster@localhost";
+        otherManagedUserVM.email = "togg@localhost";
         otherManagedUserVM.firstName = "java";
         otherManagedUserVM.lastName = "hipster";
         otherManagedUserVM.imageUrl = "";
@@ -479,10 +479,10 @@ public class UserResourceTest {
             .statusCode(CREATED.getStatusCode());
 
         var otherManagedUserVM = new ManagedUserVM();
-        otherManagedUserVM.login = "jhipster";
+        otherManagedUserVM.login = "togg";
         otherManagedUserVM.password = RandomStringUtils.random(60);
         otherManagedUserVM.activated = true;
-        otherManagedUserVM.email = "jhipster@localhost";
+        otherManagedUserVM.email = "togg@localhost";
         otherManagedUserVM.firstName = "java";
         otherManagedUserVM.lastName = "hipster";
         otherManagedUserVM.imageUrl = "";

@@ -151,7 +151,7 @@ public class AccountResourceTest {
         user.password = "test";
         user.firstName = "john";
         user.lastName = "doe";
-        user.email = "john.doe@jhipster.com";
+        user.email = "john.doe@togg.com";
         user.imageUrl = "http://placehold.it/50x50";
         user.langKey = "en";
 

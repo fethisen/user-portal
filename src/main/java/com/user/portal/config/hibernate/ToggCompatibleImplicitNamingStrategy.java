@@ -4,7 +4,7 @@ import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.ImplicitJoinTableNameSource;
 import org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl;
 
-public class JHipsterCompatibleImplicitNamingStrategy extends ImplicitNamingStrategyJpaCompliantImpl {
+public class ToggCompatibleImplicitNamingStrategy extends ImplicitNamingStrategyJpaCompliantImpl {
 
     @Override
     public Identifier determineJoinTableName(ImplicitJoinTableNameSource source) {

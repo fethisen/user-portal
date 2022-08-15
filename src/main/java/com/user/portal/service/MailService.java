@@ -1,6 +1,6 @@
 package com.user.portal.service;
 
-import com.user.portal.config.JHipsterProperties;
+import com.user.portal.config.ToggProperties;
 import com.user.portal.domain.User;
 import io.quarkus.mailer.MailTemplate;
 import io.quarkus.qute.api.ResourcePath;
@@ -21,7 +21,7 @@ public class MailService {
 
     private static final String BASE_URL = "baseUrl";
 
-    final JHipsterProperties jHipsterProperties;
+    final ToggProperties toggProperties;
 
     final MailTemplate activationEmail;
 
@@ -31,12 +31,12 @@ public class MailService {
 
     @Inject
     public MailService(
-        JHipsterProperties jHipsterProperties,
+        ToggProperties toggProperties,
         @ResourcePath("mail/activationEmail") MailTemplate activationEmail,
         @ResourcePath("mail/creationEmail") MailTemplate creationEmail,
         @ResourcePath("mail/passwordResetEmail") MailTemplate passwordResetEmail
     ) {
-        this.jHipsterProperties = jHipsterProperties;
+        this.toggProperties = toggProperties;
         this.activationEmail = activationEmail;
         this.creationEmail = creationEmail;
         this.passwordResetEmail = passwordResetEmail;
@@ -46,7 +46,7 @@ public class MailService {
         return template
             .to(user.email)
             .subject(subject)
-            .data(BASE_URL, jHipsterProperties.mail.baseUrl)
+            .data(BASE_URL, toggProperties.mail.baseUrl)
             .data(USER, user)
             .send()
             .subscribeAsCompletionStage()
@@ -59,16 +59,16 @@ public class MailService {
 
     public CompletionStage<Void> sendActivationEmail(User user) {
         log.debug("Sending activation email to '{}'", user.email);
-        return sendEmailFromTemplate(user, activationEmail, "jhipsterSampleApplication account activation is required");
+        return sendEmailFromTemplate(user, activationEmail, "toggSampleApplication account activation is required");
     }
 
     public CompletionStage<Void> sendCreationEmail(User user) {
         log.debug("Sending creation email to '{}'", user.email);
-        return sendEmailFromTemplate(user, creationEmail, "jhipsterSampleApplication account activation is required");
+        return sendEmailFromTemplate(user, creationEmail, "toggSampleApplication account activation is required");
     }
 
     public CompletionStage<Void> sendPasswordResetMail(User user) {
         log.debug("Sending password reset email to '{}'", user.email);
-        return sendEmailFromTemplate(user, passwordResetEmail, "jhipsterSampleApplication password reset");
+        return sendEmailFromTemplate(user, passwordResetEmail, "toggSampleApplication password reset");
     }
 }

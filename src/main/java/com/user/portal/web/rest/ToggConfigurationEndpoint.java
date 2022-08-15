@@ -20,7 +20,7 @@ import java.util.stream.StreamSupport;
 @Path("/management")
 @Produces(MediaType.APPLICATION_JSON)
 @RequestScoped
-public class JHipsterConfigurationEndpoint {
+public class ToggConfigurationEndpoint {
 
   @GET
   @Path("/configprops")

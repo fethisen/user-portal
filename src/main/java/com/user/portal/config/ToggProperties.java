@@ -3,7 +3,7 @@ package com.user.portal.config;
 import io.quarkus.arc.config.ConfigProperties;
 
 @ConfigProperties(prefix = "togg")
-public class JHipsterProperties {
+public class ToggProperties {
     public Security security;
     public Mail mail;
 

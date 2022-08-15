@@ -3,7 +3,7 @@ services:
   togg-postgresql:
     image: postgres:12.3
     # volumes:
-    #     - ~/volumes/jhipster/togg/postgresql/:/var/lib/postgresql/data/
+    #     - ~/volumes/togg/postgresql/:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=togg
       - POSTGRES_PASSWORD=
